@@ -39,13 +39,31 @@ function changeState(){
 // ! EVENT
 // * function to affect dom with button clicks
 function buttonClick(event){
+    // ! get clicked buttons class
+    let buttonClass = event.target.classList[1]
+    // ! find specific attack based on which button is clicked
+    let attack = findAttackbyClass(buttonClass)
 
+    // ! Update AP and HP
+    playerAP -= attack.apCost
+    fungusHP -= attack.hpDamage
+
+    // ! Prevent negative values for AP and HP
+    playerAP = Math.max(playerAP, 0)
+    fungusHP = Math.max(fungusHP, 0)
+    
 
     document.getElementById('ap-meter').textContent = `Player AP: ${playerAP}`
     document.getElementById('hp-meter').textContent = `Fungus HP: ${fungusHP}`
     console.log(document.getElementById('ap-meter').textContent = `Player AP: ${playerAP}`)
     console.log(document.getElementById('hp-meter').textContent = `Fungus HP: ${fungusHP}`)
 
+}
+
+function findAttackbyClass(){
+    if (buttonClass = 'arcane-scepter'){
+        return attacks[0]
+    }
 }
 
 // ! RENDER
