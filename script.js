@@ -39,8 +39,10 @@ function changeState(){
 // ! EVENT
 // * function to affect dom with button clicks
 function buttonClick(event){
+    
     // ! get clicked buttons class
     let buttonClass = event.target.classList[1]
+    console.log("You just used: ", buttonClass)
     // ! find specific attack based on which button is clicked
     let attack = findAttackbyClass(buttonClass)
 
@@ -58,15 +60,44 @@ function buttonClick(event){
     console.log(document.getElementById('ap-meter').textContent = `Player AP: ${playerAP}`)
     console.log(document.getElementById('hp-meter').textContent = `Fungus HP: ${fungusHP}`)
 
+    
+    render()
+
 }
 
+
+// ! function to select correct attack
 function findAttackbyClass(){
+    // ! if the button that is clicked has the class of X button, it will log the correct stats
     if (buttonClass = 'arcane-scepter'){
         return attacks[0]
+    }
+    else if(buttonClass = 'entangle'){
+        return attacks[1]
+    }
+    else if (buttonClass = 'dragon-blade'){
+        return attacks[2]
+    }
+    else if (buttonClass = 'star-fire'){
+        return attacks[3]
     }
 }
 
 // ! RENDER
 function render(){
 
+
+    // ! change the render HP/AP to the new value from buttonClick function
+    let renderHP = document.getElementById("hp-meter")
+    let renderAP = document.getElementById("ap-meter")
+    // console.log('HP is: ', renderHP)
+    // console.log('AP is: ', renderAP)
+
+    renderHP.value = fungusHP
+    renderAP.value = playerAP
+
+    console.log('HP is: ', renderHP.value)
+    console.log('AP is: ', renderAP.value)
+
+    
 }
