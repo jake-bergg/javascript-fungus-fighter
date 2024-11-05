@@ -54,11 +54,11 @@ function buttonClick(event){
     playerAP = Math.max(playerAP, 0)
     fungusHP = Math.max(fungusHP, 0)
     
-
-    document.getElementById('ap-meter').textContent = `Player AP: ${playerAP}`
-    document.getElementById('hp-meter').textContent = `Fungus HP: ${fungusHP}`
-    console.log(document.getElementById('ap-meter').textContent = `Player AP: ${playerAP}`)
-    console.log(document.getElementById('hp-meter').textContent = `Fungus HP: ${fungusHP}`)
+    // * this stuff basically did what the render function is doing now
+    // document.getElementById('ap-meter').textContent = `Player AP: ${playerAP}`
+    // document.getElementById('hp-meter').textContent = `Fungus HP: ${fungusHP}`
+    // console.log(document.getElementById('ap-meter').textContent = `Player AP: ${playerAP}`)
+    // console.log(document.getElementById('hp-meter').textContent = `Fungus HP: ${fungusHP}`)
 
     
     render()
@@ -90,11 +90,23 @@ function render(){
     // ! change the render HP/AP to the new value from buttonClick function
     let renderHP = document.getElementById("hp-meter")
     let renderAP = document.getElementById("ap-meter")
-    // console.log('HP is: ', renderHP)
-    // console.log('AP is: ', renderAP)
+    
+    // ? hopefully this can get the number above the bars to change
+    let hpBar = document.querySelector(".hp-text")
+    let apBar = document.querySelector(".ap-text")
+
+    hpBar.innerText = `${fungusHP} HP`
+    apBar.innerText = `${playerAP} AP`
+
+    console.log('health bar should be: ', hpBar.innerText)
+    console.log('ap bar should be: ', apBar.innerText)
+
+
 
     renderHP.value = fungusHP
     renderAP.value = playerAP
+
+
 
     console.log('HP is: ', renderHP.value)
     console.log('AP is: ', renderAP.value)
