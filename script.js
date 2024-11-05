@@ -9,9 +9,22 @@ let fungusHP = 100
 let playerAP = 100
 // ! set attacks stats to const objects in an array
 const attacks = [
-    { apCost: 20, damage: 10 },
-    { apCost: 50, damage: 30 },
-    { apCost: 100, damage: 70 }
+    {   name: "Arcane Scepter",
+        apCost: 12,
+        hpDamage: 14
+    },
+    {   name: "Entangle",
+        apCost: 23,
+        hpDamage: 9
+    },
+    {   name: "Dragon Blade",
+        apCost: 38,
+        hpDamage: 47
+    },
+    {   name: "Star Fire",
+        apCost: 33,
+        hpDamage: 25
+    }
   ]
 
 
@@ -19,11 +32,23 @@ const attacks = [
 function changeState(){
     // ! update player AP and fungus HP bars
     // console.log(document.getElementById("ap-text").value) 
+    
+}
+
+
+// ! EVENT
+// * function to affect dom with button clicks
+function buttonClick(event){
+
+
+    document.getElementById('ap-meter').textContent = `Player AP: ${playerAP}`
+    document.getElementById('hp-meter').textContent = `Fungus HP: ${fungusHP}`
+    console.log(document.getElementById('ap-meter').textContent = `Player AP: ${playerAP}`)
+    console.log(document.getElementById('hp-meter').textContent = `Fungus HP: ${fungusHP}`)
 
 }
 
-// ! function to affect dom with button clicks
-function buttonClick(event){
-    console.log('Player AP is at: ', playerAP)
-    console.log('Fungus HP is at: ', fungusHP)
+// ! RENDER
+function render(){
+
 }
